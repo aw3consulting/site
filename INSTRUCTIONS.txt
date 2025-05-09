@@ -1,0 +1,1 @@
+Run locally with `bundle exec jekyll serve`. Deploys automatically on push to `main`.

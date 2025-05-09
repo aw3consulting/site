@@ -1,0 +1,9 @@
+title: AW3 Consulting, LLC
+description: High-impact global consulting in supply chain, manufacturing, and strategy.
+baseurl: ""
+url: "https://www.aw3consulting.com"
+theme: minima
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed

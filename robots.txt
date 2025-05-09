@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /gpt/
+Disallow: /control-hub/
+Sitemap: https://www.aw3consulting.com/sitemap.xml
