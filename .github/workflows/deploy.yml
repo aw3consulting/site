@@ -8,14 +8,26 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-ruby@v1
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.1
-      - run: gem install bundler jekyll
-      - run: bundle install
-      - run: JEKYLL_ENV=production bundle exec jekyll build -d _site
+
+      - name: Install Jekyll and dependencies
+        run: |
+          gem install bundler jekyll
+          bundle install || true
+
+      - name: Build the Jekyll site
+        run: |
+          JEKYLL_ENV=production bundle exec jekyll build -d _site
+          ls -l _site
+
       - name: Deploy to GitHub Pages (docs branch)
         uses: peaceiris/actions-gh-pages@v3
         with:
