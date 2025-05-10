@@ -16,9 +16,11 @@ jobs:
       - run: gem install bundler jekyll
       - run: bundle install
       - run: JEKYLL_ENV=production bundle exec jekyll build -d _site
-      - uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy to GitHub Pages (docs branch)
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
           publish_branch: docs
+          force_orphan: true
           cname: www.aw3consulting.com
